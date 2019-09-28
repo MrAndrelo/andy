@@ -1,27 +1,27 @@
 <?php
 
 
-require_once "Controllers/TareasController.php";
+require_once "MVC/controlador.php";
 
 $action = $_GET["action"];
-define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("BASE_URL", 'http://'.$_SERVER["db_a_pedido"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
 
-$controller = new TareasController();
+$controller = new ComidasController();
 
 if($action == ''){
-    $controller->GetTareas();
+    $controller->getComidas();
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);
 
-        if($partesURL[0] == "tareas"){
-            $controller->GetTareas();
+        if($partesURL[0] == "comidas"){
+            $controller->getComidas();
         }elseif($partesURL[0] == "insertar") {
-            $controller->InsertarTarea();
+            $controller->InsertarComida();
         }elseif($partesURL[0] == "finalizar") {
-            $controller->FinalizarTarea($partesURL[1]);
+            $controller->EditarComida ($partesURL[1]);
         }elseif($partesURL[0] == "borrar") {
-            $controller->BorrarTarea($partesURL[1]);
+            $controller->BorrarComida($partesURL[1]);
         }
     }
 }
