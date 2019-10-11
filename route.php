@@ -1,7 +1,7 @@
 <?php
 
 
-require_once "MVC/controlador.php";
+require_once "MVC/controlador/controlador.php";
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["db_a_pedido"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');

@@ -32,7 +32,7 @@ class ComidasModel {
 
 
 	public function getComidas(){
-        $db_connection = connect(); //abro coneccion
+        $db_connection = connect(); //abro conexion
         $query = $db_connection ->prepare( 'SELECT * FROM comidas'); //preparo la consulta
         $ok = $query->execute(); //ejecuto consulta
         if (!$ok) var_dump ($query -> errorinfo()); //chequeo ejecucion
